@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock with Animation</title>
+</head>
+<body>
+    <style>
+        html{
+            background: url(https://artofmultimedia.com.au/sites/default/files/field/image/aom-web-news-railtime1_0.jpg);
+            background-size: cover;
+        }
+
+        .clock{
+            width: 30rem;
+            height: 30rem;
+            border: solid 10px;;
+            border-radius: 50%;
+            position: relative;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .clock-face{
+            background-color: blanchedalmond;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 50%;
+            
+        }
+
+        .clock-face-inner{
+            background-color: green;
+            width: 85%;
+            height: 80%;
+            position: relative;
+            border-radius: 50%;
+            align-items: center;
+            margin: auto;
+            top: 10%;
+        }
+
+        .tic{
+            width: 50%;
+            height: 6px;
+            background: green;
+            position: absolute;
+            top: 50%;
+        }
+        .tic2{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(30deg);
+        }
+        .tic3{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(60deg);
+        }
+        .tic4{
+            width: 50%;
+            height: 6px;
+            background: green;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+        }
+        .tic5{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(120deg);
+        }
+        .tic6{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(150deg);
+        }
+        .tic7{
+            width: 50%;
+            height: 6px;
+            background: green;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(180deg);
+        }
+        .tic8{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(210deg);
+        }
+        .tic9{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(240deg);
+        }
+        .tic10{
+            width: 50%;
+            height: 6px;
+            background: green;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(270deg);
+        }
+        .tic11{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(300deg);
+        }
+        .tic12{
+            width: 50%;
+            height: 6px;
+            background: black;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(330deg);
+        }
+        .second-hand{
+            width: 50%;
+            height: 6px;
+            background: brown;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+        .min-hand{
+            left: 10%;
+            width: 40%;
+            height: 6px;
+            background: brown;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+        .hour-hand{
+            left: 20%;
+            width: 30%;
+            height: 6px;
+            background: brown;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: all 0.05s;
+            transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+        }
+
+        .digital-clock{
+            background: burlywood;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid;
+            border-radius: 25px;
+            width: 50%;
+            height: 100px;
+            font-size: 80px;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+
+    <div class='clock'>
+        <div class='clock-face'>
+                <div class='tic'></div>
+                <div class='tic2'></div>
+                <div class='tic3'></div>
+                <div class='tic4'></div>
+                <div class='tic5'></div>
+                <div class='tic6'></div>
+                <div class='tic7'></div>
+                <div class='tic8'></div>
+                <div class='tic9'></div>
+                <div class='tic10'></div>
+                <div class='tic11'></div>
+                <div class='tic12'></div>
+                <div class='clock-face-inner'></div>
+                <div class='second-hand'></div>
+                <div class='min-hand'></div>
+                <div class='hour-hand'></div>
+        </div>
+    </div><br>
+
+    <div class='digital-clock'></div>
+
+
+    
+    <script>
+
+        const secondss = document.querySelector('.second-hand');
+        const minss = document.querySelector('.min-hand');
+        const hourss = document.querySelector('.hour-hand');
+
+        //function which allows for hands on clock to move based on the current time
+        function setDate(){
+            const now = new Date();
+
+            //gets current second and converts it to a degree while also adding an extra 90 degrees to match with rotated second-hand css
+            const seconds = now.getSeconds();
+            const secondsDegrees = ((seconds / 60) * 360) + 90;
+            secondss.style.transform = `rotate(${secondsDegrees}deg)`;
+
+            //gets current minuite and converts it to a degree while also adding an extra 90 degrees to match with rotated minute-hand css   
+            const mins = now.getMinutes();
+            const minsDegrees = ((mins / 60) * 360) + 90;
+            minss.style.transform = `rotate(${minsDegrees}deg)`;
+            //gets current hour and converts it to a degree while also adding an extra 90 degrees to match with rotated hour-hand css
+            const hours = now.getHours();
+            const hourDegrees = ((hours / 12) * 360) + 90;
+            hourss.style.transform = `rotate(${hourDegrees}deg)`;
+
+        }
+
+        //updates every second
+        setInterval(setDate, 1000);
+        
+        function digital(){
+            let time = new Date();
+
+            let sec= time.getSeconds();
+            let min= time.getMinutes();
+            let hour= time.getHours();
+            session = "";
+
+        if(hour > 12){
+            session = "PM";
+            hour = hour - 12;
+        }
+
+        if(hour == 0){
+            hour = 12;
+            session = "AM"
+        } 
+
+        hour = hour < 10 ? "0" + hour : hour;
+        min = min < 10 ? "0" + min : min;
+        sec = sec < 10 ? "0" + sec : sec;
+        
+        let currentTime = hour + ":" + min + ":" + sec + " " + session;
+        document.querySelector('.digital-clock').innerHTML = currentTime;
+        }
+        setInterval(digital, 1000);
+        digital();
+    </script>
+</body>
+</html>
