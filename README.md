@@ -1,3 +1,3 @@
 # Clocks
 Description:
-The code used in this file was used to build both an Analog and Digital clock with the use of HTML, CSS, and Javascript only.
+I built an analog and digital clock with the use of HTML, CSS, and Javascript.
